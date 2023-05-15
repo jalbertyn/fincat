@@ -23,7 +23,7 @@ Input is a file that contains the identifiers and financials of the companies (r
 
 ```
 company1 50000 600000 5000000 2000000
-company1 100000 1800000 4000000 10000000
+company2 100000 1800000 4000000 10000000
 ```
 
 We can assume that the exchange rate is measured at a yearly average of $1 = R20.
@@ -47,5 +47,5 @@ This opens the file `raw.dat` categorises each company and puts the result in th
 
 ```
 company1 0.4 Healthy 0.08 Average 0.4 Healthy
-company1 0.1 Average 0.05 Unhealthy 2.5 Unhealthy
+company2 0.1 Average 0.05 Unhealthy 2.5 Unhealthy
 ```
