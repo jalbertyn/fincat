@@ -1,26 +1,32 @@
 # Description for Lab Test
 
-This code takes as input a data file with the weight and height of individuals and computes the body mass index (BMI). The BMI of a person is the weight of a person in kilograms divided by the square of the height in metres. The program should then categorise the BMI according to these rules
-* Less than 19: A
-* Not less than 19 but less than 25: B
-* Not less than 25 but less than 30: C 
-* 30 or over: D
+This code takes as input a data file with the revenue, expenses, assets and liabilities of companies and computes finalcial ratios and categorization for that company. 
 
-The complexity is that the country in which the study is being done, the weight of people is given in "stones", "pounds" and "ounces", and height in "feet" and "inches". So the program does the necessary conversion.
+The three ratios to be calculated are as follows:
+* Profit margin ratio = (revenue - expenses) / revenue
+* Return on Assets ratio = (revenue - expenses) / assets
+* Debt-to-Equity ratio = liabilities/assets 
 
-Input is a file that contains the identifiers and measurements of individuals (weight and height). A two line example is shown below: the first person (A7B3) weighs 6 stone, 13 pounds and 12 ounces and is 5 foot 9 inches tall; the second person (CC2E) weighs 7 stone 10 pounds and 3 ounces and is 5 foot 11 inches tall.
+The program should then categorize the financial ratios according to these rules for the Profit margin ratio and the Return on Assets ratio:
+* Less than 0.08: unhealty
+* Not less than 0.08 but less than 0.15: average 
+* 0.15 or over: healthy
+
+The program should also categorize the Debt-to-Equity ratio as follows:
+* Less than 1: healty
+* Not less than 1 but less than 2: average 
+* 2 or over: unhealthy
+
+The complexity is that these companies generate their income from an international market working in Dollars, thus the revenue is require to be converted while the expenses, assets and liabilities are already given in Rand values.   
+
+Input is a file that contains the identifiers and financials of the companies (revenue, expenses, assets and liabilities). A two line example is shown below: the first company (company1) has a yearly dollar revenue of 50000, expenses of R600000, assets of R5000000, and liabilites of R2000000. The second company (company2) has a yearly dollar revenue of 100000, expenses of R1800000, assets of R4000000, and liabilites of R10000000.  
 
 ```
-A7B3 6 13 12 5 9
-CC2E 7 10 3 5 11
+company1 50000 600000 5000000 2000000
+company1 100000 1800000 4000000 10000000
 ```
 
-Assume the following conversion:
-* 14 pounds in a stone
-* 16 ounces in a pound
-* 2.2 pounds in a kilogram
-* 12 inches in a foot
-* 3.28 feet in a metre
+We can assume that the exchange rate is measured at a yearly average of $1 = R20.
 
 # How to build and test
 
@@ -34,12 +40,12 @@ make test
 The program is run from the command line. It should take two command-line arguments: the name of an input file and the name of an output file. For example
 
 ```
-./bmi study.dat cats.txt
+./bmi raw.dat analyzed.txt
 ```
 
-This opens the file `study.dat` categorises each person and puts the result in the file `cats.txt`. For example, if the two line example above is the content of `study.dat`, then `cats.txt` should contain
+This opens the file `raw.dat` categorises each company and puts the result in the file `analysed.txt`. For example, if the two line example above is the content of `raw.dat`, then `analyzed.txt` should contain
 
 ```
-A7B3 B
-CC2E B
+company1 0.4 Healthy 0.08 Average 0.4 Healthy
+company1 0.1 Average 0.05 Unhealthy 2.5 Unhealthy
 ```
