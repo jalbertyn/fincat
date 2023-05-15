@@ -71,7 +71,7 @@ void process_data(char* input_file, char* output_file)
     double revenue_USD, expenses, assets, liabilities, revenue_ZAR, ratio_PM, ratio_RoA, ratio_DE;
     char cat, cat2, cat3;
 
-    f_in.open(input_file,ios::in); //fixed iostream
+    f_in.open(input_file,iostream::in); //fixed iostream
     f_out.open(output_file,ofstream::out);
     while (!f_in.eof())
     {
